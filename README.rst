@@ -8,7 +8,9 @@ Installation
 
 ::
 
-    pip install git+https://github.com/morlandi/sitecopy
+    wget https://github.com/morlandi/sitecopy/raw/master/sitecopy.py
+
+then adjust **REMOTE_HOST** and **PROJECT** global variables as required
 
 Usage
 -----
