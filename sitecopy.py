@@ -124,19 +124,19 @@ def main():
         print("""
 (1) SYNC database "{project}" from remote server "{remote_server}":
 Here, we assume that user "{project}" has access to database "{project}" on both remote (source) and local (target) servers ...
-""").format(
+""".format(
     project=PROJECT,
     remote_server=REMOTE_HOST
-)
+))
         sync_db(REMOTE_HOST, PROJECT)
 
         print("""
 (2) SYNC media for project "{project}" from remote server "{remote_server}":
 Here we assume that user "{project}" can access remote server "{remote_server}" via SSH, having read access to source folder '/home/{project}/public/media/'
-""").format(
+""".format(
     project=PROJECT,
     remote_server=REMOTE_HOST
-)
+))
         sync_media(REMOTE_HOST, PROJECT)
 
     except Exception as e:
