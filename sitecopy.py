@@ -73,7 +73,7 @@ def run_command(command):
 def sync_db(remote_host, project):
 
     # Drop local tables
-    command = 'psql --command=\'drop owned by "{project}";\''.format(
+    command = 'psql --dbname="{project}" --command=\'drop owned by "{project}"\''.format(
         project=project
     )
     run_command(command)
