@@ -79,8 +79,8 @@ def sync_db(remote_host, project):
     run_command(command)
 
     # Dump remote db and feed local one
-    # Example: ssh www1.brainstorm.it "pg_dump --dbname=$PROJECT | gzip" | gunzip | psql $PROJECT
-    command = 'ssh {remote_host} "pg_dump --dbname={dbname} | gzip" | gunzip | psql {dbname}'.format(
+    # Example: ssh $PROJECT@www1.brainstorm.it "pg_dump --dbname=$PROJECT | gzip" | gunzip | psql $PROJECT
+    command = 'ssh {dbname}@{remote_host} "pg_dump --dbname={dbname} | gzip" | gunzip | psql {dbname}'.format(
         remote_host=remote_host,
         dbname=project,
     )
