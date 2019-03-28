@@ -9,6 +9,8 @@ from __future__ import absolute_import
 REMOTE_HOST = 'www1.somewhere.com'
 PROJECT = 'someproject'
 
+__version__ = '1.0.1'
+
 import os
 import sys
 import argparse
@@ -115,6 +117,7 @@ def main():
     ))
     parser.add_argument('--dry-run', '-d', action='store_true', help="simulate actions")
     parser.add_argument('--quiet', '-q', action='store_true', help="do not require user confirmation before executing commands")
+    parser.add_argument('--version', action='version', version='%(prog)s {version}'.format(version=__version__))
     args = parser.parse_args()
 
     # Add complementary info to args
