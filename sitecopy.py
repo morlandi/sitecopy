@@ -88,14 +88,15 @@ def sync_db(remote_host, project):
 
 
 def sync_media(remote_host, project):
-    source = '{remote_host}:/home/{project}/public/media/'.format(
+    source = '{project}@{remote_host}:/home/{project}/public/media/'.format(
         remote_host=remote_host,
         project=project,
     )
-    target = '/home/{project}/public/media/'.format(
-        project=project,
-    )
-
+    #target = '/home/{project}/public/media/'.format(
+    #    project=project,
+    #)
+    target = '../public/media'
+    
     command = 'rsync -avz --progress --delete {source} {target}'.format(
         source=source,
         target=target,
