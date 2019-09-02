@@ -21,3 +21,10 @@ optional arguments:
   -h, --help     show this help message and exit
   --dry-run, -d  simulate actions
   --quiet, -q    do not require user confirmation before executing commands
+
+
+Management command version
+--------------------------
+
+Uses project's settings for local db and media targets
+
