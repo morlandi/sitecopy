@@ -61,7 +61,7 @@ class Command(BaseCommand):
         super().__init__(*args, **kwargs)
         signal.signal(signal.SIGINT, signal_handler)
 
-    help = 'Syncs database and media files for project "{project}" from remote server "{remote_server}'.format(
+    help = 'Syncs database and media files for project "{project}" from remote server "{remote_server}"'.format(
         project=PROJECT,
         remote_server=REMOTE_HOST_DEFAULT
     )
@@ -76,6 +76,18 @@ class Command(BaseCommand):
         self.quiet = options['quiet']
         self.host = options['host']
         t0 = datetime.datetime.now()
+
+        # Sanity check
+        errors = 0
+        if REMOTE_HOST_DEFAULT == '<REMOTE_HOST>':
+            print('ERROR: "SITECOPY_REMOTE_HOST_DEFAULT" setting is missing.')
+            errors += 1
+        if PROJECT == '<PROJECT>':
+            print('ERROR: "SITECOPY_PROJECT" setting is missing.')
+            errors += 1
+        if errors > 0:
+            return
+
         try:
             self.work()
         except Exception as e:
