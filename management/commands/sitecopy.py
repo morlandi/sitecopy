@@ -1,3 +1,14 @@
+#!/usr/bin/env python
+
+"""
+(c) 2019 Mario Orlandi, Brainstorm S.n.c.
+"""
+
+__author__    = "Mario Orlandi"
+__version__   = "0.0.2"
+__copyright__ = "Copyright (c) 2019, Brainstorm S.n.c."
+__license__   = "GPL"
+
 import signal
 import datetime
 import time
@@ -21,7 +32,7 @@ def signal_handler(signal, frame):
     sys.exit(0)
 
 def prompt(message):
-    print("\x1b[43;30m " + message + " \x1b[0m")
+    print("\n\x1b[33m" + message + " \x1b[0m")
 
 def query_yes_no(question, default="yes"):
     """Ask a yes/no question via raw_input() and return their answer.
